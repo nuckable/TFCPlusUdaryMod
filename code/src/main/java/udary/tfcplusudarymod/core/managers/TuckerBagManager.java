@@ -26,11 +26,16 @@ import com.dunk.tfc.Entities.Mobs.EntityPheasantTFC;
 import com.dunk.tfc.Entities.Mobs.EntityPigTFC;
 import com.dunk.tfc.Entities.Mobs.EntitySheepTFC;
 import com.dunk.tfc.Entities.Mobs.EntityWolfTFC;
+import com.dunk.tfc.Entities.Mobs.EntityWarthogTFC;
+import com.dunk.tfc.Entities.Mobs.EntityBison;
+import com.dunk.tfc.Entities.Mobs.EntityBuffalo;
+import com.dunk.tfc.Entities.Mobs.EntityBighornSheepTFC;
+import com.dunk.tfc.Entities.Mobs.EntityGoat;
 
-public class TuckerBagManager 
+public class TuckerBagManager
 {
 	private static final TuckerBagManager instance = new TuckerBagManager();
-	public static final TuckerBagManager getInstance()
+	public static TuckerBagManager getInstance()
 	{
 		return instance;
 	}
@@ -62,6 +67,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCChicken)
 		{
 			entity = new TuckerBagEntity(EntityChickenTFC.class, EnumTuckerBagVersion.VERSION_1, 1, EnumTuckerBagVersion.VERSION_1, 0);
@@ -70,6 +76,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCCow)
 		{
 			entity = new TuckerBagEntity(EntityCowTFC.class, EnumTuckerBagVersion.VERSION_2, 2, EnumTuckerBagVersion.VERSION_1, 1);
@@ -78,6 +85,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCDeer)
 		{
 			entity = new TuckerBagEntity(EntityDeer.class, EnumTuckerBagVersion.VERSION_1, 2, EnumTuckerBagVersion.VERSION_1, 1);
@@ -86,6 +94,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCHorse)
 		{
 			entity = new TuckerBagEntity(EntityHorseTFC.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
@@ -94,6 +103,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCPheasant)
 		{
 			entity = new TuckerBagEntity(EntityPheasantTFC.class, EnumTuckerBagVersion.VERSION_1, 1, EnumTuckerBagVersion.VERSION_1, 0);
@@ -102,6 +112,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCPig)
 		{
 			entity = new TuckerBagEntity(EntityPigTFC.class, EnumTuckerBagVersion.VERSION_1, 2, EnumTuckerBagVersion.VERSION_1, 1);
@@ -110,6 +121,7 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCSheep)
 		{
 			entity = new TuckerBagEntity(EntitySheepTFC.class, EnumTuckerBagVersion.VERSION_1, 2, EnumTuckerBagVersion.VERSION_1, 1);
@@ -118,9 +130,55 @@ public class TuckerBagManager
 			else if (ModOptions.showVerboseStartup)
 				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
 		}
+
 		if (ModOptions.canCaptureTFCWolf)
 		{
 			entity = new TuckerBagEntity(EntityWolfTFC.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
+			if (!getInstance().addEntity(entity))
+				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Entity not registered (" + entity.getLocalizedName() + ")");
+			else if (ModOptions.showVerboseStartup)
+				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
+		}
+
+		if (ModOptions.canCaptureTFCWarthog)
+		{
+			entity = new TuckerBagEntity(EntityWarthogTFC.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
+			if (!getInstance().addEntity(entity))
+				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Entity not registered (" + entity.getLocalizedName() + ")");
+			else if (ModOptions.showVerboseStartup)
+				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
+		}
+
+		if (ModOptions.canCaptureTFCBison)
+		{
+			entity = new TuckerBagEntity(EntityBison.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
+			if (!getInstance().addEntity(entity))
+				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Entity not registered (" + entity.getLocalizedName() + ")");
+			else if (ModOptions.showVerboseStartup)
+				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
+		}
+
+		if (ModOptions.canCaptureTFCBuffalo)
+		{
+			entity = new TuckerBagEntity(EntityBuffalo.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
+			if (!getInstance().addEntity(entity))
+				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Entity not registered (" + entity.getLocalizedName() + ")");
+			else if (ModOptions.showVerboseStartup)
+				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
+		}
+
+		if (ModOptions.canCaptureTFCBighornSheep)
+		{
+			entity = new TuckerBagEntity(EntityBighornSheepTFC.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
+			if (!getInstance().addEntity(entity))
+				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Entity not registered (" + entity.getLocalizedName() + ")");
+			else if (ModOptions.showVerboseStartup)
+				System.out.println("[" + ModDetails.ModName + "] Registered Entity Class: " + entity.getLocalizedName());
+		}
+
+		if (ModOptions.canCaptureTFCGoat)
+		{
+			entity = new TuckerBagEntity(EntityGoat.class, EnumTuckerBagVersion.VERSION_2, 3, EnumTuckerBagVersion.VERSION_2, 1);
 			if (!getInstance().addEntity(entity))
 				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Entity not registered (" + entity.getLocalizedName() + ")");
 			else if (ModOptions.showVerboseStartup)
@@ -137,10 +195,10 @@ public class TuckerBagManager
 		// check if the entity has already been added.
 		if (findMatchingEntity(entity.getEntityClass()) != null)
 			return false;
-		
+
 		return entities.add(entity);
 	}
-	
+
 	public void clearEntities()
 	{
 		entities.clear();
@@ -160,7 +218,7 @@ public class TuckerBagManager
 	public TuckerBagEntity findMatchingEntity(String entityClassName)
 	{
 		// check for valid parameters
-		if (entityClassName == null || entityClassName.trim() == "")
+		if (entityClassName == null || entityClassName.trim().equals(""))
 			return null;
 		
 		for (TuckerBagEntity entity : entities)
@@ -177,16 +235,16 @@ public class TuckerBagManager
 		// check for valid parameters
 		if (!hasEntity(is))
 			return null;
-		
+
 		NBTTagCompound nbt = is.stackTagCompound.getCompoundTag(ModTags.TAG_TUCKER_BAG);
 		if (nbt == null)
 			return null;
-		
+
 		String entityClassName = nbt.getString(ModTags.TAG_ENTITY_CLASS);
-		
+
 		return findMatchingEntity(entityClassName);
 	}
-	
+
 	public List<TuckerBagEntity> getEntities()
 	{
 		return entities;
@@ -200,13 +258,13 @@ public class TuckerBagManager
 
 		return entities.remove(entity);
 	}
-	
+
 	public boolean removeEntity(Class<? extends Entity> entity)
 	{
 		// check for valid parameters.
 		if (entity == null)
 			return false;
-		
+
 		// check if the entity has been added.
 		TuckerBagEntity tbEntity = findMatchingEntity(entity);
 		if (tbEntity == null)
@@ -214,9 +272,9 @@ public class TuckerBagManager
 
 		return entities.remove(tbEntity);
 	}
-	
-	
-	
+
+
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public boolean canStoreEntity(ItemStack is, Entity entity, List returnMessages)
 	{
@@ -392,11 +450,11 @@ public class TuckerBagManager
 	{
 		// check for valid parameters.
 		if (is == null || is.stackTagCompound == null)
-			return false;	
-		
+			return false;
+
 		if (!is.stackTagCompound.hasKey(ModTags.TAG_TUCKER_BAG))
 			return false;
-		
+
 		return true;
 	}
 	

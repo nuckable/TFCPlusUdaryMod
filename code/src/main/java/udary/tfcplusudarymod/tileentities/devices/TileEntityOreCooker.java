@@ -494,7 +494,7 @@ public class TileEntityOreCooker extends NetworkTileEntity implements IInventory
 			}
 		}
 		
-		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);
+		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord, false);
 	}
 	
 	public void updateGui()

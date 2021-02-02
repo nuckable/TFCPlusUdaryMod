@@ -388,7 +388,7 @@ public class TileEntityDryingMat extends NetworkTileEntity implements IInventory
 			}
 		}
 		
-		TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord, env, base);
+		TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord, env, base, false);
 	}
 	
 	public void updateGui()

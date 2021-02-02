@@ -277,9 +277,21 @@ public class ModRecipes
 			for (int index = 0; index < 14; index++)
 			{
 				// Normal Ore (25 units)
-				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCItems.oreChunk, 1, index+49), new Object[] { new ItemStack(TFCItems.oreChunk, 1, index   ), ModOreDictionary.TFC_ITEM_HAMMER }));
+				GameRegistry.addRecipe(new ShapelessOreRecipe(
+						new ItemStack(TFCItems.oreChunk, 1, index+49),
+						new Object[] {
+								new ItemStack(TFCItems.oreChunk, 1, index),
+								ModOreDictionary.TFC_ITEM_HAMMER
+						})
+				);
 				// Rich Ore (35 units)
-				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCItems.oreChunk, 1, index   ), new Object[] { new ItemStack(TFCItems.oreChunk, 1, index+35), ModOreDictionary.TFC_ITEM_HAMMER }));		
+				GameRegistry.addRecipe(new ShapelessOreRecipe(
+						new ItemStack(TFCItems.oreChunk, 1, index   ),
+						new Object[] {
+								new ItemStack(TFCItems.oreChunk, 1, index+35),
+								ModOreDictionary.TFC_ITEM_HAMMER
+						})
+				);
 			}
 			
 			// convert sticks to oak log

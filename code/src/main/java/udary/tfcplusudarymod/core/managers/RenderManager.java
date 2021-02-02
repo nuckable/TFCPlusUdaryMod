@@ -13,7 +13,7 @@ import udary.tfcplusudarymod.render.item.RenderTuckerBag;
 public class RenderManager 
 {
 	private static final RenderManager instance = new RenderManager();
-	public static final RenderManager getInstance()
+	public static RenderManager getInstance()
 	{
 		return instance;
 	}
@@ -67,7 +67,7 @@ public class RenderManager
 	{
 		renderers.clear();
 	}
-	
+
 	public IRender getRender(Item item)
 	{
 		// check for valid parameters.
@@ -76,13 +76,13 @@ public class RenderManager
 		
 		return renderers.get(item);
 	}
-	
+
 	public Boolean removeRender(Item item)
 	{
 		// check for valid parameters.
 		if (item == null || !renderers.containsKey(item))
 			return false;
-		
+
 		renderers.remove(item);
 		return true;
 	}

@@ -658,7 +658,7 @@ public class TileEntityAnodisingVessel extends TEBarrel implements IInventory
 			setAnodisingStart(0);
 		}
 		
-		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);
+		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord, false);
 	
 		// check the fluid amount
 		if (this.fluid != null && this.fluid.amount <= 0)

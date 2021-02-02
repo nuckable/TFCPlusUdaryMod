@@ -45,16 +45,6 @@ public class EvaporatorPanManager extends RecipeManager
 	
 	protected static void registerRecipes()
 	{
-		if (FluidRegistry.isFluidRegistered(TFCFluids.SALTWATER))
-		{
-			// Saltwater -> Salt
-			Recipe recipe = new EvaporatorPanRecipe(new FluidStack(TFCFluids.SALTWATER, ModOptions.saltwaterEvaporationAmount), new ItemStack(TFCItems.powder, 1, 9) /* Salt */).setUnlocalizedName("EP Salt");
-			if (!getInstance().addRecipe(recipe, recipe.getUnlocalizedName()))
-				System.out.println("[" + ModDetails.ModName + "] ** ERROR ** Recipe not registered (" + recipe.getLocalizedName() + ")");
-			else if (ModOptions.showVerboseStartup)
-				System.out.println("[" + ModDetails.ModName + "] Registered Recipe: " + recipe.getLocalizedName());
-		}
-		
 		if (ModOptions.enableHotSpringWater && FluidRegistry.isFluidRegistered(TFCFluids.HOTWATER))
 		{
 			// Spring Water -> Fertilizer

@@ -60,7 +60,7 @@ public class TFCBarrel implements IWailaDataProvider
 				ItemStack is = storage[INPUT_SLOT];
 				Boolean sealed = tag.getBoolean("Sealed");
 				
-				BarrelRecipe recipe = BarrelManager.getInstance().findMatchingRecipe(is, fs, sealed, tileEntity.getTechLevel());				
+				BarrelRecipe recipe = BarrelManager.getInstance().findMatchingRecipe(is, fs, sealed, tileEntity.getTechLevel(), false, tileEntity);
 
 				if (recipe != null && recipe.isSealedRecipe() && recipe.sealTime > 1)
 				{

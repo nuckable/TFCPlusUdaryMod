@@ -85,7 +85,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 
     	return true;
     }
-	
+
 	/**
 	 * Removes all the recipes registered with the manager.
 	 */
@@ -93,7 +93,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 	{
 		recipes.clear();
 	}
-	
+
 	public int count()
 	{
 		return recipes.size();
@@ -192,7 +192,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
     	
     	return null;
     }
-    
+
 	/**
 	 * Get the name of the manager.
 	 */
@@ -200,7 +200,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 	{
 		return this.managerName;
 	}
-	
+
     /**
      * Get the next available recipeId.
      */
@@ -208,10 +208,10 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
     {
         return nextRecipeId++;
     }
-	
+
     /**
      * Removes a registered recipe from the manager.
-     * @param modId The modid owning the recipe. 
+     * @param modId The modid owning the recipe.
      * @param name The name of the recipe itself.
      * @return True if the recipe was removed; otherwise false if recipe not removed or not registered.
      */
@@ -223,31 +223,31 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 
     	// get a modid prefixed name.
     	String key = addPrefix(name);
-    	
+
 		return recipes.remove(key) != null;
 	}
-	
+
 	/**
 	 * Removes a registered recipe from the manager.
 	 * @param recipeId The id of the recipe to remove.
 	 * @return True if the recipe was removed; otherwise false if recipe not removed or not registered.
 	 */
 	public boolean removeRecipe(int recipeId)
-	{		
+	{
 		while (hasNext())
 		{
 			Recipe recipe = next();
 			if (recipe == null) continue;
-			
+
 			if (recipe.getRecipeId() == recipeId)
 				remove();
 			return true;
 		}
-		
+
 		return false;
 	}
 
-    @Override
+	@Override
     public String toString()
     {
         return managerName + "@" + recipes.size();
@@ -260,7 +260,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 		Iterator<Recipe> iterator = iterator();
 		if (iterator == null)
 			return false;
-		
+
 		return iterator.hasNext();
 	}
 
@@ -270,7 +270,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 		Iterator<Recipe> iterator = iterator();
 		if (iterator == null)
 			return null;
-		
+
 		return iterator().next();
 	}
 
@@ -280,7 +280,7 @@ public class RecipeManager implements Iterable<Recipe>, Iterator<Recipe>
 		Iterator<Recipe> iterator = iterator();
 		if (iterator == null)
 			return;
-		
+
 		iterator().remove();
 	}
 

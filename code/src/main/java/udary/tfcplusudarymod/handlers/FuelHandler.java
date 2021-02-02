@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class FuelHandler implements IFuelHandler
 {
-	private static HashMap<Item, Integer> fuelItems = new HashMap<Item, Integer>();
+	private static final HashMap<Item, Integer> fuelItems = new HashMap<Item, Integer>();
 
 	public static void registerFuel(Item item, int burnTime)
 	{

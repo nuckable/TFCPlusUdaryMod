@@ -49,7 +49,6 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
     
     protected EnumTuckerBagVersion bagVersion;
     protected EnumItemReach reach;
-    protected EquipType equipType;
     
 	public ItemTuckerBag(int maxDamage, EnumTuckerBagVersion bagVersion)
 	{
@@ -68,21 +67,24 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 		this.rand = new Random();
 		this.bagVersion = bagVersion;
 		this.reach = EnumItemReach.SHORT;
-		this.equipType = EquipType.BACK;
+	}
+
+	public IIcon getIconFromDamageForRenderPass(int par1, int par2) {
+		return this.itemIcon;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "unchecked" })
 	@Override
 	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
 	{
 		super.addInformation(is, player, arraylist, flag);
 		
 		String damageString = WailaUtils.getDamageInformation(is, false);
-		if (damageString != "")
+		if (!damageString.equals(""))
 			arraylist.add(damageString);
 		
 		String entityString = WailaUtils.getEntityInformation(is);
-		if (entityString != "")
+		if (!entityString.equals(""))
 			arraylist.add(entityString);
 	}
 	
@@ -145,11 +147,6 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 	@Override
     public boolean itemInteractionForEntity(ItemStack is, EntityPlayer player, EntityLivingBase entity)
     {
-//		if (is.getItem() instanceof ItemTuckerBag)
-//		{
-//			return tuckerBagManager.canStoreEntity(entity);
-//		}
-		
 		return false;
     }
     
@@ -210,23 +207,16 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 	{
 		return tuckerBagManager.setEntity(entity, is);
 	}
-	
-	@Override
-	public EquipType getEquipType(ItemStack is) 
-	{
-		return this.equipType;
+
+	public EquipType getEquipType(ItemStack is) {
+		return EquipType.BACK;
 	}
 
-	@Override
-	public boolean getTooHeavyToCarry(ItemStack is) 
+	public boolean getTooHeavyToCarry(ItemStack is)
 	{
-		if (hasEntity(is))
-			return true;
-		
-		return false;
+		return hasEntity(is);
 	}
 
-	@Override
 	public void onEquippedRender()
 	{
 	}
@@ -252,13 +242,7 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 		if (mop == null)
 		{
 			releaseEntity(is, world, player, false);
-		}		
-//		else if (mop.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && mop.entityHit != null)
-//		{
-//			Entity entity = world.getEntityByID(mop.entityHit.getEntityId());
-//			
-//			storeEntity(is, player, entity);
-//		}
+		}
 		
 		return is;
 	}
@@ -282,12 +266,12 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 		return true;
     }
 	
-	protected Vec3 scaleVector(Vec3 vector, float scale)
+	protected Vec3 scaleVector(Vec3 vector)
 	{
 		if (vector == null)
 			return null;
 		
-		return Vec3.createVectorHelper(vector.xCoord * scale, vector.yCoord * scale, vector.zCoord * scale);
+		return Vec3.createVectorHelper(vector.xCoord * (float) 3, vector.yCoord * (float) 3, vector.zCoord * (float) 3);
 	}
 	
 	protected Boolean releaseEntity(ItemStack is, World world, EntityPlayer player, boolean bagDroppedByPlayer)
@@ -300,7 +284,7 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 			EntityAnimal entity = getEntity(world, is);
 			if (entity != null)
 			{
-				Vec3 vector = scaleVector(player.getLookVec(), 3);
+				Vec3 vector = scaleVector(player.getLookVec());
 				
 				// set new position of the entity.
 				entity.setLocationAndAngles(player.posX+vector.xCoord, player.posY+1, player.posZ+vector.zCoord, 0.0F, 0.0F);
@@ -332,13 +316,13 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 							// apply damage.
 							is.attemptDamageItem(damageAmount, rand);
 						}
-						
+
 						return true;
 					}
 				}
 			}
-		}			
-	
+		}
+
 		return false;
 	}
 
@@ -387,15 +371,17 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
         return true;
     }
 
-	@Override
-	public ResourceLocation getClothingTexture(Entity arg0, ItemStack arg1, int arg2) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResourceLocation getClothingTexture(Entity entity, ItemStack itemstack, int num) {
+		return hasEntity(itemstack) ?
+				new ResourceLocation(ModDetails.ModID + ":textures/items/" + this.textureFolder + this.getUnlocalizedName().replace("item.", "") + " Full.png") :
+				new ResourceLocation(ModDetails.ModID + ":textures/items/" + this.textureFolder + this.getUnlocalizedName().replace("item.", "") + ".png");
 	}
 
-	@Override
 	public ClothingType getClothingType() {
-		// TODO Auto-generated method stub
-		return null;
+		return ClothingType.NULL;
+	}
+
+	public boolean canStack() {
+		return false;
 	}
 }

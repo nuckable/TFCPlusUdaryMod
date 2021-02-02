@@ -606,7 +606,7 @@ public class TileEntityEvaporatorPan extends NetworkTileEntity implements IInven
 			}			
 		}
 		
-		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);
+		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord, false);
 		
 		// check the fluid amount.
 		if (inputFS != null && inputFS.amount <= 0)

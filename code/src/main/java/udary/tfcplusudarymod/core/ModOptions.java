@@ -57,7 +57,12 @@ public class ModOptions
 	public static boolean canCaptureTFCPig = true; 
 	public static boolean canCaptureTFCSheep = true; 
 	public static boolean canCaptureTFCWolf = false; 
-	
+	public static boolean canCaptureTFCWarthog = false;
+	public static boolean canCaptureTFCBison = false;
+	public static boolean canCaptureTFCBuffalo = false;
+	public static boolean canCaptureTFCBighornSheep = false;
+	public static boolean canCaptureTFCGoat = true;
+
 	// WAILA
 	public static boolean loadTerraFirmaCraftWailaClasses = false;
 	public static boolean loadUdaryModWailaClasses = true;
@@ -260,7 +265,12 @@ public class ModOptions
 		ModOptions.canCaptureTFCPig = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCPig", true, "Set this to true to allow tucker bags to capture TFC Pigs.");
 		ModOptions.canCaptureTFCSheep = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCSheep", true, "Set this to true to allow tucker bags to capture TFC Sheep.");
 		ModOptions.canCaptureTFCWolf = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCWolf", false, "Set this to true to allow tucker bags to capture TFC Wolves.");
-		
+		ModOptions.canCaptureTFCWarthog = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCWarthog", false, "Set this to true to allow tucker bags to capture TFC Warthogs.");
+		ModOptions.canCaptureTFCBison = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCBison", false, "Set this to true to allow tucker bags to capture TFC Bisons.");
+		ModOptions.canCaptureTFCBuffalo = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCBuffalo", false, "Set this to true to allow tucker bags to capture TFC Buffalo.");
+		ModOptions.canCaptureTFCBighornSheep = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCBighornSheep", false, "Set this to true to allow tucker bags to capture TFC Bighorn Sheep.");
+		ModOptions.canCaptureTFCGoat = ModOptions.getBooleanFor(config, "TuckerBag", "canCaptureTFCGoat", false, "Set this to true to allow tucker bags to capture TFC Goats.");
+
 		// WAILA
 		ModOptions.loadTerraFirmaCraftWailaClasses = ModOptions.getBooleanFor(config, "WAILA", "loadTerraFirmaCraftWailaClasses", false, "Set this to true if you want to register additional WAILA classes for TerraFirmaCraft mod.");
 		ModOptions.loadUdaryModWailaClasses = ModOptions.getBooleanFor(config, "WAILA", "loadUdaryModWailaClasses", true, "Set this to true if you want to register additional WAILA classes for Udary mod.");
