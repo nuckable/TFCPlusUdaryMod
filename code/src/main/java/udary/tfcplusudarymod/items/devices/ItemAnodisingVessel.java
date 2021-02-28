@@ -338,6 +338,11 @@ public class ItemAnodisingVessel extends ItemTerraBlock implements IFluidContain
 	}
 
 	@Override
+	public boolean canGoInBackSlot(ItemStack itemStack) {
+		return false;
+	}
+
+	@Override
 	public void onEquippedRender()
 	{
 		GL11.glTranslatef(0, 0.0f, -0.2F);

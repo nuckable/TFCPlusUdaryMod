@@ -19,7 +19,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.3.01"
+version = "0.3.2"
 group= "udary.tfcplusudarymod"
 archivesBaseName = "TFCPlusUdaryMod"
 

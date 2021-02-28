@@ -217,6 +217,11 @@ public class ItemTuckerBag extends ItemTerra implements ITuckerBag, IEquipable
 		return hasEntity(is);
 	}
 
+	@Override
+	public boolean canGoInBackSlot(ItemStack itemStack) {
+		return true;
+	}
+
 	public void onEquippedRender()
 	{
 	}
